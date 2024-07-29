@@ -1,0 +1,37 @@
+[package]
+name = "friendo"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1"
+clap = { version = "4", features = ["cargo"] }
+env_logger = "0.11"
+log = { version = "0.4", features = [
+    "release_max_level_trace",
+    "max_level_trace",
+] }
+reqwest = { version = "0.12", default-features = false, features = [
+    "rustls-tls-native-roots",
+    "cookies",
+    "json",
+    "http2",
+] }
+once_cell = "1.19"
+reqwest-websocket = "0.4.1"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tap = "1"
+tokio = { version = "1", features = ["full"] }
+toml = "0.8"
+uuid = { version = "1", features = ["v4"] }
+sysinfo = "0.30.13"
+global-hotkey = "0.5.4"
+futures-util = "0.3"
+
+[target.'cfg(windows)'.dependencies]
+winapi = { version = "0.3.9", features = [
+    "psapi",
+    "shellapi",
+    "errhandlingapi",
+] }
